@@ -1,0 +1,39 @@
+#login-container{
+
+    form{
+        margin: 0 auto;
+        padding:1rem;
+        max-width: 400px;
+
+        input, button{
+            margin: 0.3rem 0;
+            font-size: 1rem;
+            padding: 1rem;
+            border: 1px solid lightgrey;
+            border-radius: 2px;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+            &:hover{
+                border: 1px solid var(--main-color)
+            }
+        }
+
+        .loading-btn{
+            animation: Loading 2s ease-in-out infinite;
+        }
+
+        @keyframes Loading {
+            from{
+                border: 1px solid var(--main-color);
+                color: var(--main-color);
+            }
+            to{
+                border: 1px solid lightgray;
+                color: #555555;
+            }
+            
+        }
+    }
+
+}

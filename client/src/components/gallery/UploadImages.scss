@@ -1,0 +1,36 @@
+#upload-images-container{
+
+    .hidden{
+        display: none;
+    }
+
+    .upload-content{
+        form{
+            margin: 1rem auto;
+            text-align: center;
+            label{
+                cursor: pointer;
+                border: 2px solid lightgray;
+                transition: ease-in-out 0.3s;
+                padding: 0.4rem;
+                &:hover{
+                    border: 2px solid var(--main-color);
+                }
+            }
+            p{
+                margin: 0.5rem;
+            }
+            button{
+                font-size: 1rem;
+                padding: 0.4rem;
+                border: 2px solid lightgray;
+                margin-left: 0.3rem;
+                &:hover{
+                    border: 2px solid var(--main-color);
+                }
+            }
+        }
+    }
+
+    
+}

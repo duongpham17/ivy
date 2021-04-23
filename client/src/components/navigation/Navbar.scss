@@ -1,0 +1,36 @@
+#nav-container{
+
+    .navbar-1{
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        a:hover{
+            color: var(--main-color);
+        }
+        h1{
+            font-size: 2rem;
+            &:hover{
+                color: var(--main-color);
+            }
+        }
+    }
+    
+    .navbar-2{  
+        text-align: center;
+        margin-bottom: 1rem;
+
+        a{
+            padding: 0.3rem 0.5rem;
+            &:hover{
+                color: var(--main-color);
+                border-bottom: 1px solid var(--main-color);
+            }
+        }.at{
+            color: var(--main-color);
+            border-bottom: 1px solid var(--main-color);
+        }
+    }
+
+}

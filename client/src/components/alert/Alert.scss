@@ -1,0 +1,33 @@
+/* Global ALlert Styles */
+@mixin text-color($color){
+    color: $color;
+    text-align: center;
+}
+  
+.alert {
+    @include text-color(var(--main-color));
+    position: fixed;
+    right:10px;
+    margin: 3rem auto;
+    border-radius: 5px;
+
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+    padding: 0 0.5rem;
+    z-index: 9999999;
+}
+
+.alert-primary {
+background: var(--main-color);
+@include text-color(#fff);
+}
+
+.alert-danger {
+background: #f15968;
+@include text-color(#fff);
+}
+
+.alert-success {
+background: hsl(143, 61%, 55%);
+@include text-color(#fff);
+}

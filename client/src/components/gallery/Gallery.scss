@@ -1,0 +1,29 @@
+#gallery-container{
+    text-align: center;
+    margin-top: 2rem;
+
+    .edit-btn{
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        &:hover{
+            color: var(--main-color);
+        }
+    }.color{
+        color: var(--main-color);
+    }
+
+    .map-content{
+        margin: 1rem auto;
+    }
+
+    .loading-btn {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid var(--main-color);
+        border-top-color: white;
+        animation: spinner 1s linear infinite;
+    }
+
+}

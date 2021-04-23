@@ -1,0 +1,29 @@
+#contact-container{
+    padding: 0.5rem;
+    max-width: 500px;
+    margin: 3rem auto;
+
+    .info-content{
+        text-align: center;
+
+        button{
+            font-size: 1rem;
+            &:hover{
+                color: var(--main-color);
+            }
+        }
+
+        .icon{
+            font-size: 1.4rem;
+        }    
+        .info{
+            margin-top: 0.5rem
+        }
+        .header{
+            margin-top: 2rem
+        }
+        a:hover{
+            color: var(--main-color);
+        }
+    }
+}

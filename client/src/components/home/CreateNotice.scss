@@ -1,0 +1,47 @@
+#create-notice-container{
+    form{
+        margin: 0 auto;
+        padding:1rem;
+        max-width: 400px;
+        margin-top: 3rem;
+
+        textarea, button{
+            font-size: 1rem;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 0.1rem;
+            text-align: left;
+        }
+        textarea{
+            min-height: 8rem;
+            border: 1px solid lightgrey;
+            &:hover{
+                border: 1px solid var(--main-color)
+            }
+        }
+        button{
+            text-align: center;
+            font-size: 1.5rem;
+            animation: Float 4s infinite ;
+            &:hover{
+                color: var(--main-color)
+            }
+        }
+
+        @keyframes Float{
+            0% {
+                transform: translateY(-10%);
+              }
+            
+              50% {
+                transform: translateY(10%);
+              }
+            
+              100% {
+                transform: translateY(-10%);
+              }
+        }
+
+    }
+}

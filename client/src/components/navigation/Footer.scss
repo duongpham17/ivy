@@ -1,0 +1,38 @@
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 3rem 0;
+
+    button{
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        &:hover{
+            color: var(--main-color);
+        }
+        animation: Float 3s infinite;
+    }
+
+    .icon{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+      &:hover{
+        color: var(--main-color);
+      }
+    }
+
+    @keyframes Float{
+        0% {
+            transform: translateY(-10%);
+          }
+        
+          50% {
+            transform: translateY(10%);
+          }
+        
+          100% {
+            transform: translateY(-10%);
+          }
+    }
+}
