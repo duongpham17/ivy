@@ -37,9 +37,6 @@ import Gallery from './components/gallery/Gallery';
 /* Services */
 import Services from './components/services/Services';
 
-/* Contact */
-import Contact from './components/contact/Contact';
-
 const App = () => {
   return (
     <Provider store={Store}>
@@ -59,7 +56,6 @@ const App = () => {
             <Route exact path="/prices" component={Price} />
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/services" component={Services} />
-            <Route exact path="/contact" component={Contact} />
             <Route component={NotFound} />
           </Switch>
         </div>

@@ -37,16 +37,6 @@ export const Services = (props) => {
             We offer many services in waxing and facial treatments. We do cluster lash extensions and also sell strip lashes if you prefer. You can also tint your eyebrows and eyelashes which is a special dye for your sensitive eye area, this is great for natural enhancements. How long it lasts depends on how much care you take so please be aware!<br/>
             With waxing, we do many areas such as legs, underarms, and facial waxing.
             </p>
-
-            <h2>Semi-Permanent Makeup</h2>
-            <p>
-            Wendy's Nails & Beauty is proud to offer you semi-permanent makeup options!<br/>
-            Ombre eyebrows are a great option for a fuller look with the start of the brow in a lighter shade slowly fading to a darker shade by the tail of the brow.<br/>
-            Micro-blading is a great trend come into the industry in the past few years - it consists of hair like strokes tattooed into the skin for a natural look but still giving you the volume and shape you dream of!<br/>
-            Eyeliner tattooing gives you a fuller lash look without lash enhancements and can really brighten your eyes.<br/>
-            Lip tattooing will help you have a fuller lip look while maintaining a natural look. This can help to brighten up your whole face for a youthful appearance.<br/>
-            Eyeliner and lip tattooing is a great option for those who want a tint without the hassle of putting on makeup every day.<br/>
-            </p>
         </div>
     )
 }

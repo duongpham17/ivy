@@ -9,11 +9,11 @@ export const Footer = () => {
 
     return (
         <footer>
-            <button onClick={backToTop}><IoIosArrowUp /></button>
+            <button className="up-btn" onClick={backToTop}><IoIosArrowUp /></button>
             <br/>
             <a target="_blank" rel="noreferrer" href="https://www.instagram.com/ivys.nails6789"><AiFillInstagram className="icon"/></a>
             <a target="_blank" rel="noreferrer" href="https://www.facebook.com/ivysnails6789"><AiFillFacebook className="icon"/></a>
-            <p>Ivy's Nails</p><br/>
+            <p>Ivy's Nails</p>
             <p>© 2021. All rights reserved.</p>
         </footer>
     )

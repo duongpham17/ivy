@@ -1,25 +1,22 @@
 import './Home.scss';
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Notice from './Notice';
 import CreateNotice from './CreateNotice';
+import Information from './Information';
+import Contact from './Contact';
+import Display from './Display';
 
-export const Home = (props) => {
+export const Home = () => {
     return (
         <div id="home-container">
+            <Display/>
             <CreateNotice/>
             <Notice/>
+            <Information/>
+            <Contact/>
         </div>
     )
 }
 
-const mapStateToProps = (state) => ({
-    
-})
-
-const mapDispatchToProps = {
-    
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home

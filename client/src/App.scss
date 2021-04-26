@@ -23,7 +23,7 @@ body {
   --main-lightgrey: rgb(236, 232, 232);
 }
 
-a, li, input, button, p, h1, h2, h3{
+a, li, input, button, p, h1, h2, h3,td,tr{
   text-decoration: none;
   list-style-type: none;
   outline: none;
@@ -56,6 +56,11 @@ button{
   cursor: pointer;
 }
 
+.icon{
+  margin: -0.1rem 0;
+  font-size:1.1rem;
+}
+
 .loading{
   z-index: -1;
   content: "";
@@ -78,7 +83,8 @@ button{
   }
 }
 
-.icon{
-  margin: -0.1rem 0;
-  font-size:1.1rem;
+@keyframes color-change {
+  0% { color: var(--main-color); }
+  50% { color: rgb(235, 82, 246); }
+  100% { color: var(--main-color)}
 }

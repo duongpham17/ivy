@@ -1,15 +1,19 @@
 footer{
     width: 100%;
     text-align: center;
-    padding: 3rem 0;
+    padding: 1rem 0;
 
-    button{
+    .up-btn{
         margin-bottom: 1rem;
         font-size: 1.5rem;
         &:hover{
             color: var(--main-color);
         }
         animation: Float 3s infinite;
+    }
+
+    p{
+      padding: 0.4rem;
     }
 
     .icon{
