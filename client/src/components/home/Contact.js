@@ -33,7 +33,7 @@ export const Contact = (props) => {
                     </tbody>
                 </table>
                 <p className="header"><BiPhone className="icon"/> Phone</p>
-                <a href="tel:01375675532">Give us a call - 07936666789</a>
+                <a href="tel:07936666789">Give us a call - 07936666789</a>
             </div>  
 
             <div className="map-content">
