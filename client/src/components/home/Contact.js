@@ -5,7 +5,7 @@ import {BiTimeFive, BiPhone} from 'react-icons/bi';
 
 import Map from './Map';
 
-export const Contact = (props) => {
+export const Contact = () => {
 
     return (
         <div id="contact-container">
@@ -33,7 +33,7 @@ export const Contact = (props) => {
                     </tbody>
                 </table>
                 <p className="header"><BiPhone className="icon"/> Phone</p>
-                <a href="tel:07936666789">Give us a call - 07936666789</a>
+                <a href="tel:07936666789">Give us a call - 07936 666 789</a>
             </div>  
 
             <div className="map-content">

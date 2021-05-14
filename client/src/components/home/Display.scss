@@ -27,7 +27,8 @@
             padding: 0.5rem;
             text-align: center;
         }
-        a{
+        a:hover{
+            color: var(--main-color);
         }
     }
 
@@ -35,7 +36,7 @@
         .message-content{
             p{
                 padding: 0.3rem;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
             a{
                 font-size: 0.8rem;
