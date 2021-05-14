@@ -1,6 +1,5 @@
 import './Display.scss';
 import React from 'react';
-import main from '../images/main-image.jpeg';
 
 export const Display = () => {
     return (
@@ -13,7 +12,7 @@ export const Display = () => {
                 </p>
             </div>
             <div className="image-content">
-                <img src={main} alt="hello" />
+                <img src="https://firebasestorage.googleapis.com/v0/b/ivy-303dc.appspot.com/o/design%2Fmain-image.jpeg?alt=media&token=df808115-dc55-4245-b94f-c993e3f29e47" alt="hello" />
             </div>
 
         </div>

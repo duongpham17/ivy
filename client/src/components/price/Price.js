@@ -16,8 +16,9 @@ export const Price = ({price:{price, loading}, auth:{user}, getPrice, deletePric
     const [options, setOptions] = useState({
         type: "",
         _id: "",
-        picker: ""
     });
+
+    const [select, setSelect] = useState("Everything")
 
     useEffect(() => {
         !price.length && getPrice();
@@ -26,11 +27,10 @@ export const Price = ({price:{price, loading}, auth:{user}, getPrice, deletePric
 
     useEffect(() => {
         setOptions({
-            type: price.map(el => el.type),
-            _id: price.map(el => el._id),
-            picker: !price.length ? "" : price[0].type
-        });
-    }, [price]);
+            type: ["Everything"].concat(price.map(el => el.type)),
+            _id: ["1"].concat(price.map(el => el._id))
+        })
+    }, [price])
 
     return (loading ? <p className="loading" /> : !price.length && user?.role === "admin" ? <CreatePrice/> :
 
@@ -47,16 +47,30 @@ export const Price = ({price:{price, loading}, auth:{user}, getPrice, deletePric
                 </div>
             }
 
-            {!options.type ? "" : options.type.map((el, i) => 
+            {options.type && options.type.map((el, i) => 
                 <div key={i} className="type-btn-container">
                     {user?.role === "admin" && edit && editType === "Delete" && <button className="delete-btn" onClick={() => deletePrice(options._id[i])}>X</button>}
-                    <button className={options.picker === el ? "types-btn-choosen" : "types-btn" } key={el._id} onClick={() => setOptions({...options, picker: el})}>{el.charAt(0).toUpperCase() + el.slice(1)}</button>
+                    <button className={select === el ? "types-btn-choosen" : "types-btn" } key={el._id} onClick={() => setSelect(el)}>{el.charAt(0).toUpperCase() + el.slice(1)}</button>
                 </div>
             )}
 
+            {select=== "Everything" && 
+                <div className="everything-container">
+                    {price.map((el) => 
+                        <div key={el._id}>
+                            {el.price.map((em, i) => 
+                            <div key={i}>
+                                {em.includes("header") ? <h2>{em.slice(6)}</h2> : <p>{em}</p>}
+                            </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            }
+
             {price.map(el => 
                 <div key={el._id} className="map-content">
-                    <EditPrice el={el} picker={options.picker} role={user?.role} edit={edit}/>
+                    <EditPrice el={el} select={select} role={user?.role} edit={edit}/>
                 </div>
             )}
 

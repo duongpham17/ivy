@@ -54,6 +54,21 @@
         }
     }
 
+    .everything-container{
+        max-width: 600px;
+        margin: 1rem auto;
+        text-align: left;
+        position: relative;
+        padding: 0 1rem;
+        
+        h2{
+        border-left: 3px solid var(--main-color);
+        padding-left: 0.5rem;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        }
+    }
+
     .map-content{
         max-width: 600px;
         margin: 1rem auto;

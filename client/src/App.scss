@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 h1, h2, h3{
@@ -81,10 +81,4 @@ button{
   to{
       transform: rotate(360deg);
   }
-}
-
-@keyframes color-change {
-  0% { color: var(--main-color); }
-  50% { color: rgb(235, 82, 246); }
-  100% { color: var(--main-color)}
 }

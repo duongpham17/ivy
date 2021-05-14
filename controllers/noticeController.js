@@ -3,7 +3,7 @@ const {appError, catchAsync} = require('../util/CatchError');
 
 exports.getPost = catchAsync(async(req, res, next) => {
 
-    const notice = await Notice.find().sort({createdAt: -1});
+    const notice = await Notice.find().sort({createdAt: -1}).limit(10);
 
     if(!notice){
         return next(new appError("Cant create message", 400))

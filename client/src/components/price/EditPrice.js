@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { updatePrice } from '../../redux/actions/priceActions';
 import { AiOutlineUpload, AiOutlineMinus } from 'react-icons/ai';
 
-export const AddPrice = ({el, picker, edit, role, updatePrice}) => {
+export const AddPrice = ({el, select, edit, role, updatePrice}) => {
 
     const [add, setAdd] = useState("");
     const [header, setHeader] = useState("");
@@ -55,7 +55,7 @@ export const AddPrice = ({el, picker, edit, role, updatePrice}) => {
         setSave(true)
     }
 
-    return ( el.type.toLowerCase() === picker.toLowerCase() && 
+    return ( el.type.toLowerCase() === select.toLowerCase() && 
         <div id="add-price-container">
             {el.price.map((el, i) => 
                 <div key={el+i}>
