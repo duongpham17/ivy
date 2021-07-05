@@ -7,7 +7,7 @@ export const Information = () => {
         {
             title: "Most Popular - Gel Pedicure £35",
             url: "https://firebasestorage.googleapis.com/v0/b/ivy-303dc.appspot.com/o/design%2F1.png?alt=media&token=95be28c1-3397-4f96-8ec1-38c3b5b66769",
-            link: "prices"
+            link: "price"
         },
         {
             title: "Nail Art & Design",
