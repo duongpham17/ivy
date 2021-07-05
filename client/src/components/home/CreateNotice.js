@@ -1,7 +1,7 @@
 import './CreateNotice.scss';
 import React,{useState} from 'react';
 import { connect } from 'react-redux';
-import { createNotice } from '../../redux/actions/noticeActions';
+import { createNotice } from 'redux/actions/noticeActions';
 import { AiOutlineUpload } from 'react-icons/ai';
 
 export const CreateNotice = ({auth:{user}, createNotice}) => {

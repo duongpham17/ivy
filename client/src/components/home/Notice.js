@@ -1,7 +1,7 @@
 import './Notice.scss';
 import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
-import {getNotice, deleteNotice} from '../../redux/actions/noticeActions';
+import {getNotice, deleteNotice} from 'redux/actions/noticeActions';
 import ReactHtmlParser from 'react-html-parser';
 
 

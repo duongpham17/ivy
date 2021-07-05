@@ -2,7 +2,7 @@ import './Navbar.scss';
 import React from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import {logout} from '../../redux/actions/authActions';
+import {logout} from 'redux/actions/authActions';
 import {useLocation} from 'react-router-dom';
 
 export const Navbar = ({auth:{loggedOn}, logout}) => {

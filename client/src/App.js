@@ -26,16 +26,16 @@ import Footer from './components/navigation/Footer';
 import Login from './components/authentication/Login';
 
 /* Home */
-import Home from './components/home/Home';
+import Home from './components/home';
 
 /* Price */
-import Price from './components/price/Price';
+import Price from './components/price';
 
 /* Gallery */
-import Gallery from './components/gallery/Gallery';
+import Gallery from './components/gallery';
 
 /* Services */
-import Services from './components/services/Services';
+import Services from './components/services';
 
 const App = () => {
   return (

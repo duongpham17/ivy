@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: "./config.env" });
 const cors = require('cors');
 
-const security = (app) => {
+module.exports = (app) => {
     app.use(cors({
         origin: process.env.NODE_ENV === "production" ? process.env.WEBSITE_URL :  process.env.FRONTEND_PORT,
         credentials: true,
@@ -13,5 +13,3 @@ const security = (app) => {
     app.use(mongoSanitize());
     app.use(xss());
 }
-
-module.exports = security

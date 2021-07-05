@@ -1,13 +1,10 @@
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const app = express();
 
 require('./secuirty')(app);
 
-app.use(express.json({ limit: '100kb' }));
-app.use(express.urlencoded({extended: true, limit: '100kb'}));
-app.use(cookieParser());
+require('./parser')(app, express)
 
 require('./routing')(app);
 

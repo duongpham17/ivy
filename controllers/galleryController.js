@@ -40,6 +40,7 @@ exports.deleteGallery = catchAsync(async(req, res, next) => {
 
 //upload images
 exports.uploadImage = catchAsync(async(req, res, next) => {
+    
     const gallery = await Gallery.findByIdAndUpdate(req.params.id, {images: req.body.images}, {new : true})
 
     if(!gallery ){

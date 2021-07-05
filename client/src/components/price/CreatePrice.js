@@ -1,7 +1,7 @@
 import './CreatePrice.scss';
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import {createPrice} from '../../redux/actions/priceActions';
+import {createPrice} from 'redux/actions/priceActions';
 import { AiOutlineUpload } from 'react-icons/ai';
 
 export const CreatePrice = ({createPrice}) => {

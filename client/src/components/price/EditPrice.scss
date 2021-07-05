@@ -1,77 +1,81 @@
-#add-price-container{
-    padding: 0 1rem;
+.edit-price-container{
+    text-align: center;
+    margin: 2rem auto;
 
-    .edit-header{
-        border-left: 3px solid var(--main-color);
-        padding-left: 0.5rem;
-    }
-    .no-edit-header{
-        border-left: 3px solid var(--main-color);
-        padding-left: 0.5rem;
-        margin-top: 2rem;
-        margin-bottom: 0.5rem;
-    }
-    p{
-        width: 95%;
-        margin-top: 0.5rem;
-    }
-
-    .edit-content{
-        border: 1px solid lightgray;
-        padding: 0.5rem;
-
-        &:hover{
-            border: 1px solid var(--main-color);
-        }
-
+    .edit-btn{
         button{
-            position: absolute;
-            right: 10px;
             font-size: 1rem;
-            padding: 0.5rem 0.5rem;
-            margin-top: -0.5rem;
             &:hover{
                 color: var(--main-color);
             }
         }
-    }.switching{
-        border: 2px solid var(--main-color);
     }
 
-    form{
-        width: 100%;
-        border: 1px solid black;
-        box-sizing: border-box;
+    .content{
         padding: 0.5rem;
-        margin-top: 1rem;
-        &:hover{
-            border: 1px solid grey;
+        max-width: 500px;
+        margin: auto;
+
+        .selections{
+            .icon{
+                font-size: 1.3rem;
+            }
+            button{
+                margin: 0.4rem;
+                &:hover{
+                    color: var(--main-color);
+                }
+            }
+            .selected{
+                color: var(--main-color);
+            }
         }
 
-        input{
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        button{
-            position: absolute;
-            right: 13px;
-            font-size: 1.1rem;
+        .prices{
             padding: 0.5rem;
-            margin-top: -0.5rem;
-            &:hover{
-                color: var(--main-color);
+
+            .options{
+                display: flex;
+
+                :nth-child(1){
+                    width: 100%;
+                }
+                .selected{
+                    border-color: var(--main-color);
+                }
+
+                button{
+                    display: block;
+                    padding: 0.3rem;
+                    border: 1px solid grey;
+                    margin: 0.3rem;
+                    text-align: left;
+                    &:hover{
+                        border-color: var(--main-color);
+                    }
+                }
             }
         }
-    }
 
-    .save-btn{
-        width: 100%;
-        margin-top: 1rem;
-        padding: 0.5rem;
-        font-size: 1.5rem;
-        &:hover{
-            color: var(--main-color);
+        .add{
+            padding: 0.5rem;
+            li, .icon{
+                display: flex;
+            }
+            input{
+                width: 100%;
+            }
+            input,button{
+                padding: 0.4rem;
+                margin: 0.2rem;
+                border: 1px solid grey;
+                &:hover{
+                    border-color: var(--main-color);
+                }
+            }
         }
+        
+
+
     }
 }

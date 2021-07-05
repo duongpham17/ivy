@@ -1,18 +1,17 @@
 import './EditGallery.scss';
 import React, {useState} from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import {storage} from './Firebase';
 
-import {deleteImage, uploadImage} from '../../redux/actions/galleryActions';
+import {deleteImage, uploadImage} from 'redux/actions/galleryActions';
 
-import { AiOutlineUpload } from 'react-icons/ai';
+import { AiOutlineUpload, AiFillCloseCircle } from 'react-icons/ai';
 
 import UploadImages from './UploadImages';
 
-export const EditGallery = ({el, picker, role, edit, deleteImage, uploadImage}) => {
+export const EditGallery = ({gallery, setEditing, editing, deleteImage, uploadImage}) => {
 
-    const [loading, setLoading] = useState(false);
     const [save, setSave] = useState(false);
 
     const [position, setPosition] = useState({
@@ -21,54 +20,50 @@ export const EditGallery = ({el, picker, role, edit, deleteImage, uploadImage}) 
         index: ""
     })
 
-    const onDelete = async (e, index, url) => {
-        e.preventDefault();
-        setLoading(true);
-        el.images.splice(index, 1);
-        await deleteImage(el._id, el.images);
+    const onDelete = async (url, index) => {
+        gallery[0].images.splice(index, 1);
+        await deleteImage(gallery[0]._id, gallery[0].images);
         await storage.refFromURL(url).delete()
-        setLoading(false)
     }
 
-    const onSwitch = (e, url, index) => {
-        e.preventDefault()
-
+    const onSwitch = (url, index) => {
         if(!position.switching) return setPosition({...position, switching: true, url, index})
         
         if(index === position.index) return  setPosition({...position, switching: false, url: "", index: ""});
 
-        el.images.splice(position.index, 1);
-        el.images.splice(index, 0, position.url);
+        gallery[0].images.splice(position.index, 1);
+        gallery[0].images.splice(index, 0, position.url);
 
         setPosition({...position, switching: false, url: "", index: ""});
         setSave(true)
     }
 
-    const onSave = (e) => {
-        e.preventDefault();
-        uploadImage(el._id, el.images);
+    const onSave = () => {
+        uploadImage(gallery[0]._id, gallery[0].images);
         setSave(false)
     }
 
-    return (el.type.toLowerCase() === picker.toLowerCase() && 
-        <div id="edit-gallery-container">
+    return (
+        <div className="edit-gallery-container">
 
-            {role === "admin" && edit && <UploadImages el={el} /> }
-
-            {save && <button className="save-btn" onClick={(e) => onSave(e)}>Save changes <br/><AiOutlineUpload className="icon"/></button> }
-
-            {role === "admin" && edit && el.images.map((el, i) => 
-                <div key={el+i} className="edit-content">
-                    <img src={el} alt="gallery" className={position.switching && position.index === i ? "switching" : ""} onClick={(e) => onSwitch(e, el, i)}/>
-                    {loading ? <button className="loading-btn" /> : <button onClick={(e) => onDelete(e, i, el)}>X</button>}
-                </div>
-            )}
-
-            <div className="row">
-            {!edit && el.images.map((el, i) => 
-                <img key={el+i} src={el} alt="gallery" />
-            )}
+            <div className="edit-btn">
+                <button onClick={() => setEditing(!editing)}>{!editing ? "Edit Gallery" : "Close Editing"}</button>
+                <br/><br/>
+               {editing && <UploadImages gallery={gallery}/>}
+                <br/><br/>
+                {save && <button onClick={() => onSave()}>Save changes <br/> <AiOutlineUpload className="icon" /></button>}
             </div>
+
+            {editing && 
+                <div className="edit-images">
+                    {gallery[0].images.map((el, i) => 
+                    <div className="content" key={i}>
+                        <button onClick={() => onDelete(el, i)}><AiFillCloseCircle/></button>
+                        <img className={i === position.index ? "choosen" : "not-choosen"} src={el} alt="edit" onClick={() => onSwitch(el, i)} />
+                    </div>
+                    )}
+                </div>
+            }
 
         </div>
     )

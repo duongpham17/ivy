@@ -52,7 +52,9 @@ export const uploadImage = (id, images) => async dispatch => {
         })
         dispatch(setAlert(`Images uploaded`, 'success'))
     } catch(err) {
-        dispatch(setAlert(`${err.response.data.message}`, 'danger'))
+        dispatch(setAlert(`${err.response.data.message}`, 'danger'));
+
+        console.log(err.response)
     }
 }
 
@@ -64,7 +66,7 @@ export const deleteImage = (id, images) => async dispatch => {
             payload: res.data.gallery,
             id
         })
-        dispatch(setAlert(`Delete images`, 'success'))
+        dispatch(setAlert(`Deleted image`, 'success'))
     } catch(err) {
         dispatch(setAlert(`${err.response.data.message}`, 'danger'))
     }

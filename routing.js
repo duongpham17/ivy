@@ -4,7 +4,7 @@ const noticeRoutes = require('./routes/noticeRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
 const {errorMessage} = require('./util/CatchError');
 
-const routing = (app) => {
+module.exports = (app) => {
 
     app.use('/users', userRoutes);
     app.use('/notices', noticeRoutes);
@@ -13,5 +13,3 @@ const routing = (app) => {
     app.use(errorMessage);
 
 }
-
-module.exports = routing;

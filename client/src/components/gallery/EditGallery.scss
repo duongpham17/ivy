@@ -1,88 +1,51 @@
-#edit-gallery-container{
+.edit-gallery-container{
 
-    .edit-content{
-        display: inline-block;
-    
-        img{
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            padding: 0.2rem;
-            margin: 0.2rem;
-            border: 2px solid transparent;
-            &:hover{
-                border: 2px solid var(--main-color);
-            }
-        }.switching{
-            border: 2px solid var(--main-color);
-        }
+    .edit-btn{
+        text-align: center;
+        margin: 2rem;
 
         button{
-            position: absolute;
-            margin: 10px -20px;
+
+            font-size: 1rem;
             &:hover{
-                color: red;
+                color: var(--main-color);
             }
         }
-    }    
-
-    .save-btn{
-        display: block;
-        margin: 2rem auto;
-        font-size: 1rem;
-        &:hover{
-            color: var(--main-color);
+        .icon{
+            font-size: 1.5rem;
         }
     }
 
-    .public-content{
-        margin: -0.8rem auto;
-        padding: 0.5rem;
-        max-width: 400px;
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
+    .edit-images{
+        text-align: center;
 
-    .row {
-        -webkit-column-count: 4;
-        -moz-column-count:    4;
-        column-count:         4;
-        column-gap:           8px;
-        margin: 5px;
-        padding: 0;
-        img {
-        margin-bottom: 5px;
-        width: 100% !important;
-        height: auto !important;
-            &:hover{
-                filter: brightness(1.02)
+        .content{
+            display: inline-block;
+            position: relative;
+
+            button{
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                font-size: 1.2rem;
+                color: black;
+                &:hover{
+                    color: red;
+                }
+            }
+
+            img{
+                margin: 0.5rem;
+                width:200px;
+                height:200px;
+                border: 3px solid transparent;
+                &:hover{
+                    border: 3px solid var(--main-color);
+                }
+            }
+            .choosen{
+                border: 3px solid rgb(34, 34, 34);
             }
         }
     }
-
-    @media (max-width: 1000px) {
-        .row {
-        -moz-column-count:    3;
-        -webkit-column-count: 3;
-        column-count:         3;
-        }
-      }
-      @media (max-width: 800px) {
-        .row {
-        -moz-column-count:    2;
-        -webkit-column-count: 2;
-        column-count:         2;
-        }
-      }
-      @media (max-width: 400px) {
-        .row {
-        -moz-column-count:    1;
-        -webkit-column-count: 1;
-        column-count:         1;
-        }
-      }
-
 }

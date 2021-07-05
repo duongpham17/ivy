@@ -1,36 +1,27 @@
-#upload-images-container{
+
+.upload-images-container{
+    text-align: center;
+    margin: auto;
+    width: 200px;
 
     .hidden{
         display: none;
     }
-
-    .upload-content{
-        form{
-            margin: 1rem auto;
-            text-align: center;
-            label{
-                cursor: pointer;
-                border: 2px solid lightgray;
-                transition: ease-in-out 0.3s;
-                padding: 0.4rem;
-                &:hover{
-                    border: 2px solid var(--main-color);
-                }
-            }
-            p{
-                margin: 0.5rem;
-            }
-            button{
-                font-size: 1rem;
-                padding: 0.4rem;
-                border: 2px solid lightgray;
-                margin-left: 0.3rem;
-                &:hover{
-                    border: 2px solid var(--main-color);
-                }
-            }
+    label{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid lightgrey;
+        padding: 0.5rem;
+        width: 200px;
+        cursor: pointer;
+        &:hover{
+            border-color: var(--main-color);
         }
     }
+    span{
+        margin: 0 0.5rem;
+    }
 
-    
 }
+

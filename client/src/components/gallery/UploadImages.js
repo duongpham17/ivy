@@ -1,7 +1,7 @@
 import './UploadImages.scss';
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
-import { setAlert } from '../../redux/actions/alertActions';
+import { setAlert } from 'redux/actions/alertActions';
 import { storage } from './Firebase';
 
 import Resizer from 'react-image-file-resizer';
@@ -9,19 +9,18 @@ import Resizer from 'react-image-file-resizer';
 import { BsImages } from 'react-icons/bs';
 import { HiUpload } from 'react-icons/hi';
 
-import {uploadImage} from '../../redux/actions/galleryActions';
+import {uploadImage} from 'redux/actions/galleryActions';
 
-export const UploadImges = ({uploadImage, el, setAlert}) => {
+export const UploadImges = ({uploadImage, gallery, setAlert}) => {
 
     //for image upload and delete
     const [uploading, setUploading] = useState(false);
     const [imageFile, setImageFile] = useState("");
-    const [progress, setProgress] = useState(0);
     const random = Math.random().toString(36).substring(7);
 
     const resizeFile = (file) => new Promise(resolve => {
 
-        if(file.type === "image/jpeg" || file.type === "image/png"){
+        if(file.type === "image/jpeg" || file.type === "image/jpg" || file.type === "image/png"){
 
             Resizer.imageFileResizer(file, 400, 400, 'JPEG', 100, 0,
             uri => {
@@ -39,8 +38,9 @@ export const UploadImges = ({uploadImage, el, setAlert}) => {
     const handleImageFileCompression = async (e) => {
         if(!e.target.files[0]) return 
         const resizeImage = await resizeFile(e.target.files[0])
-        const blob = await fetch(resizeImage).then(r => r.blob())
-        blob.name = e.target.files[0].name
+        const getImage = await fetch(resizeImage);
+        const blob = await getImage.blob();
+        blob.name = e.target.files[0].name;
         setImageFile(blob)
         setUploading(true)
     };
@@ -49,44 +49,27 @@ export const UploadImges = ({uploadImage, el, setAlert}) => {
         e.preventDefault()
         setUploading(false)
 
-        const uploadTask = storage.ref(`/gallery/${random+imageFile.name}`).put(imageFile)
-        uploadTask.on('state_changed', 
-        (snapShot) => {
-        const progress = Math.round(
-            (snapShot.bytesTransferred / snapShot.totalBytes) * 100
-        )
-        setProgress(progress)
-        })
-
         try{
-        await storage.ref(`/gallery/${random+imageFile.name}`).put(imageFile);
-        const imageUrl = await storage.ref(`/gallery/${random+imageFile.name}`).getDownloadURL();
-        await uploadImage(el._id, [...el.images, imageUrl])
-        setImageFile("")
-        setProgress(0)
+            await storage.ref(`/gallery/${random+imageFile.name}`).put(imageFile);
+            const imageUrl = await storage.ref(`/gallery/${random+imageFile.name}`).getDownloadURL();
+            gallery[0].images.push(imageUrl);
+            await uploadImage(gallery[0]._id, gallery[0].images)
+            setImageFile("")
         }catch(err){
             setUploading(false)
-            setProgress(0)
             setAlert("Only .jpg .png .jpeg is accepted.", 'primary')
         }
     }
 
-    const Upload = () => (
-        <div className="upload-content">
-            <form onSubmit={handleImageUpload}>
-                <label htmlFor="myfile"><BsImages className="icon"/> Select an image</label>
-                <input type="file" id="myfile" className="hidden" onChange={handleImageFileCompression}/>
-                {uploading ? <button><HiUpload className="icon"/></button>: "" }
-                <p>{imageFile.name}</p>
-                <progress className="progress_bar" value={progress} max="100"/>
-            </form>
-        </div>
-    )
-
     return (
-        <div id="upload-images-container">
-            <Upload />
-        </div>
+        <form className="upload-images-container" onSubmit={handleImageUpload}>
+            <label htmlFor="myfile"><BsImages className="icon"/> <span>Select an image</span></label>
+            <input type="file" id="myfile" className="hidden" onChange={handleImageFileCompression}/>
+            <br/>
+            <p>{imageFile.name}</p>
+            <br/>
+            {uploading && <button><HiUpload className="icon"/></button>}
+        </form>
     )
 }
 

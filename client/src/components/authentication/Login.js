@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
-import {login} from '../../redux/actions/authActions';
+import {login} from 'redux/actions/authActions';
 
 export const Login = ({auth:{loggedOn}, login}) => {
 

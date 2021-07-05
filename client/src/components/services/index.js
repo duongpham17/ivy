@@ -1,9 +1,9 @@
-import './Services.scss';
+import './index.scss';
 import React from 'react';
 
-export const Services = (props) => {
+export const Index = () => {
     return (
-        <div id="services-container">
+        <div className="services-container">
             <h2>Acrylic</h2>
             <p>
                 A great hard-wearing nail option, you can have tips to extend your nail length or even just an acrylic overlay!
@@ -41,4 +41,4 @@ export const Services = (props) => {
     )
 }
 
-export default Services
+export default Index
