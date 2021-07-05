@@ -10,7 +10,7 @@ const config = { headers:{  "Content-Type" : "application/json" }  };
 
 export const getGallery = () => async dispatch => {
     try{
-        const res = await Api.get(`/gallery`);
+        const res = await Api.get(`/galleries`);
         dispatch({
             type: GALLERY,
             payload: res.data.gallery
@@ -22,7 +22,7 @@ export const getGallery = () => async dispatch => {
 
 export const createGallery = (type) => async dispatch => {
     try{
-        const res = await Api.post(`/gallery`, {type}, config);
+        const res = await Api.post(`/galleries`, {type}, config);
         dispatch({
             type: CREATE_GALLERY,
             payload: res.data.gallery,
@@ -35,7 +35,7 @@ export const createGallery = (type) => async dispatch => {
 
 export const updateGallery = (id, gallery) => async dispatch => {
     try{
-       await Api.patch(`/gallery/${id}`, {gallery}, config);
+       await Api.patch(`/galleries/${id}`, {gallery}, config);
         dispatch(setAlert(`Gallery updated`, 'success'))
     } catch(err) {
         dispatch(setAlert(`${err.response.data.message}`, 'danger'))
@@ -44,7 +44,7 @@ export const updateGallery = (id, gallery) => async dispatch => {
 
 export const uploadImage = (id, images) => async dispatch => {
     try{
-        const res = await Api.patch(`/gallery/upload/${id}`, {images}, config);
+        const res = await Api.patch(`/galleries/upload/${id}`, {images}, config);
         dispatch({
             type: UPLOAD_IMAGE,
             payload: res.data.gallery,
@@ -60,7 +60,7 @@ export const uploadImage = (id, images) => async dispatch => {
 
 export const deleteImage = (id, images) => async dispatch => {
     try{
-        const res = await Api.patch(`/gallery/upload/${id}`, {images}, config);
+        const res = await Api.patch(`/galleries/upload/${id}`, {images}, config);
         dispatch({
             type: UPLOAD_IMAGE,
             payload: res.data.gallery,
@@ -74,7 +74,7 @@ export const deleteImage = (id, images) => async dispatch => {
 
 export const deleteGallery = (id) => async dispatch => {
     try{
-        await Api.delete(`/gallery/${id}`);
+        await Api.delete(`/galleries/${id}`);
         dispatch({
             type: DELETE_GALLERY,
             id

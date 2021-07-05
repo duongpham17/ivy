@@ -9,7 +9,7 @@ export const Navbar = ({auth:{loggedOn}, logout}) => {
 
     const location = useLocation();
 
-    const links = ["home", "prices", "gallery", "services"]
+    const links = ["home", "price", "gallery", "services"]
     
     return (
         <nav id="nav-container">

@@ -9,7 +9,7 @@ module.exports = (app) => {
     app.use('/users', userRoutes);
     app.use('/notices', noticeRoutes);
     app.use('/prices', priceRoutes);
-    app.use('/gallery', galleryRoutes);
+    app.use('/galleries', galleryRoutes);
     app.use(errorMessage);
 
 }
