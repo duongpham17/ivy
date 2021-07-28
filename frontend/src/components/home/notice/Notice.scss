@@ -1,12 +1,12 @@
 #notice-container{
-    margin: 4rem auto;
+    margin: 2rem 0;
     text-align: center;
-    max-width: 500px;
     padding: 1rem;
+    border-top: 1px solid lightgrey ;
+    border-bottom: 1px solid lightgrey ;
 
     .latest{
         font-size: 2rem;
-        margin-top: 3rem;
     }
 
     .map-content{

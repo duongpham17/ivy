@@ -1,18 +1,14 @@
 import './index.scss';
 import React from 'react';
 
-import Notice from './Notice';
-import CreateNotice from './CreateNotice';
-import Information from './Information';
-import Contact from './Contact';
-import Display from './Display';
+import Notice from './notice';
+import Display from './display';
+import Contact from './contact';
 
 export const Index = () => (
     <div className="home-container">
         <Display/>
-        <CreateNotice/>
         <Notice/>
-        <Information/>
         <Contact/>
     </div>
 )

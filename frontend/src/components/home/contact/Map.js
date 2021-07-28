@@ -3,9 +3,9 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import {AiOutlineCopy} from 'react-icons/ai';
 
-export const Map = () => {
-    return (
-        <div className="map-container">
+export const Map = () => 
+(
+    <div className="map-container">
         <MapContainer center={[51.614617355188194, 0.5223806173352443]} zoom={20} scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -17,9 +17,8 @@ export const Map = () => {
                 </Popup>
             </Marker>
         </MapContainer>
-        </div>
-    )
-}
+    </div>
+)
 
 
 export default Map

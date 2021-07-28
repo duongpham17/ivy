@@ -37,36 +37,38 @@ import Gallery from './components/gallery';
 /* Services */
 import Services from './components/services';
 
-const App = () => {
-  return (
-    <Provider store={Store}>
+const App = () => 
+(
+  <Provider store={Store}>
 
-      <Router>
-        <Data />
-        <Title />
-        <Connection/>
-        <Alert/>
-        
-        <Navbar/>
-        
-        <div id="body-content">
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/price" component={Price} />
-            <Route exact path="/gallery" component={Gallery} />
-            <Route exact path="/services" component={Services} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
+    <Router>
 
-        <div id="footer">
-          <Footer/>
-        </div>
-        
-      </Router>
-    </Provider>
-    )
-};
+      <Data />
+      <Title />
+      <Connection/>
+      <Alert/>
+      
+      <Navbar/>
+      
+      <div id="body-content">
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/price" component={Price} />
+          <Route exact path="/gallery" component={Gallery} />
+          <Route exact path="/services" component={Services} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+
+      <div id="footer">
+        <Footer/>
+      </div>
+      
+    </Router>
+
+  </Provider>
+)
+
 
 export default App
