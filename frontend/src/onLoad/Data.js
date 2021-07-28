@@ -6,18 +6,14 @@ import {loadUser} from '../redux/actions/authActions'
 export const Data = ({loadUser}) => {
 
     useEffect(() => {
-        if(localStorage.getItem("loggedIn") === "jwt-exist") return loadUser();
+        if(localStorage.getItem("loggedIn")) return loadUser();
     }, [loadUser])
 
     return <></>
 }
 
-const mapStateToProps = (state) => ({
-    
-})
-
 const mapDispatchToProps = {
     loadUser
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Data)
+export default connect(null, mapDispatchToProps)(Data)

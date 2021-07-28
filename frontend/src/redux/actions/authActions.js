@@ -17,7 +17,7 @@ export const loadUser = () => async dispatch => {
         })
         console.log('Welcome to Wendy Nails :D');
     } catch(err) {
-        console.log('Empty')
+        console.log('')
     }
 }
 
@@ -29,9 +29,8 @@ export const login = (formData) => async dispatch => {
             type: LOGIN,
             payload: res.data.user
         })
-        localStorage.setItem("loggedIn", "jwt-exist")
+        localStorage.setItem("loggedIn", true)
     } catch(err){
-        console.log(err.response)
         dispatch(setAlert(`${err.response.data.message}`, 'danger'))
     }
 }
@@ -44,7 +43,7 @@ export const logout = () => async dispatch => {
             type: LOGOUT
         })
         dispatch(setAlert('Logged out', 'success'))
-        localStorage.removeItem("loggedIn")
+        localStorage.clear();
     } catch (err) {
         dispatch(setAlert(`${err.response.data.message}`, 'danger'))
     }

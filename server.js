@@ -1,16 +1,26 @@
-const mongoose = require('mongoose')
-const app = require('./app');
+const express = require('express');
+const app = express();
 
-(async () => {
-    const db = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
-    const use = {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false};
-    try{
-        await mongoose.connect( db , use )
-        if (process.env.NODE_ENV === "development") console.log("DB connection successful!");
-    } catch (err){
-        console.log("Could not connect to database")
-    }
-})();
+//config.env our environment
+require('dotenv').config({path: "./config.env" });
 
-const port = process.env.PORT || 8000
-app.listen(port, () => console.log(`Listening on port ${port}`))
+//for security
+require('./server/security')(app);
+
+//limit users request per minute
+require('./server/rateLimit')(app);
+
+//for parsing JSON data
+require('./server/parser')(app, express);
+
+//endpoint urls
+require('./server/routes')(app);
+
+//serve our production html files from build folder
+require('./server/heroku')(app, express);
+
+//connect to MongoDB using mongoose
+require('./server/mongodb')();
+
+const port = process.env.PORT || 8000;
+app.listen(port, () => console.log(`Listening on port ${port}`));

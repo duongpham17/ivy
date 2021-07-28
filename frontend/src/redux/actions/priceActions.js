@@ -41,7 +41,6 @@ export const updatePrice = (id, price) => async dispatch => {
     }
 }
 
-
 export const deletePrice = (id) => async dispatch => {
     try{
         await Api.delete(`/prices/${id}`);

@@ -34,20 +34,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index)
-
-
-/*
-
-return (loading ? <p className="loading" /> : !gallery.length && user?.role === "admin"? <CreateGallery /> :
-        <div id="gallery-container">
-            {user?.role === "admin" && <button className={edit ? "edit-btn color" : "edit-btn" } onClick={() => setEdit(!edit)}><MdEdit className="icon"/> Upload Images</button>} <br/>
-
-            {gallery.map(el => 
-                <div key={el._id} className="map-content">
-                    <EditGallery el={el} picker={options.picker} edit={edit}/>
-                </div>
-            )}
-        </div>
-    )
-
-*/
